@@ -14,7 +14,7 @@ before_install:
   # travis encrypted the json file of gcloud login, unencrypt
   - openssl aes-256-cbc -K $encrypted_1fc90f464345_key -iv $encrypted_1fc90f464345_iv -in kubernetes_login_info.json.enc -out kubernetes_login_info.json -d
   # login to gcloud with encrypted json file via travis
-  - gcloud auth activate-service-account --key-file service-account.json
+  - gcloud auth activate-service-account --key-file kubernetes_login_info.json
   # set project info for gcloud project (specific to each project)
   - gcloud config set project multi-k8s-247918
   - gcloud config set compute/zone us-west1-b
