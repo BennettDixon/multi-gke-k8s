@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
         - kube.bencodesit.com
-        secretName: bencodesit-com
+      secretName: bencodesit-com
   rules:
     - host: kube.bencodesit.com
       http:
