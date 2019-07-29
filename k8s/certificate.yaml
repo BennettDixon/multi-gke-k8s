@@ -1,0 +1,19 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: k8s-multi-com-tls
+spec:
+  secretName: bencodesit-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  # name on cert saying its good for 'xyzname.com' in browser
+  commonName: bencodesit.com
+  dnsNames:
+    - kube.bencodesit.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - kube.bencodesit.com
